@@ -1,0 +1,9 @@
+{
+    "sensorConfig": {
+        "mqtt": {
+            "broker": "mqtt.eclipseprojects.io",
+            "port": 1883
+        }
+    },
+"telegramToken": "5062176202:AAGIYMleX2HXuYoUlZWhU05wlob6ftySiR8"
+}

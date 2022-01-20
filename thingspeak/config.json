@@ -1,0 +1,16 @@
+{
+    "thingspeak": {
+        "channel_id": 1606104,
+        "write_key": "6OUDQVJZXVN79J6T",
+        "read_key": "YZC74ETTGSNAFSAU",
+        "field": {
+            "Energy prices": "field1",
+            "Energy consumption": "field2",
+            "Energy costs": "field3"
+        }
+    },
+    "mqtt": {
+        "broker": "172.15.10.5",
+        "port": 1883
+    }
+}

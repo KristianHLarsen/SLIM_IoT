@@ -1,0 +1,10 @@
+{
+    "actuators": [
+        "actuator/1/factory/1/0",
+        "actuator/0/factory/0/0"
+    ],
+    "sensors": [
+        "sensor/0/factory/0/0",
+        "sensor/1/factory/0/10"
+    ]
+}

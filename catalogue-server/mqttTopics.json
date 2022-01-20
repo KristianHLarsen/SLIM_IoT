@@ -1,0 +1,14 @@
+{
+    "sensors": [
+        "sensor/345/factory/34/0"
+    ],
+    "actuators": [
+        "actuator/346/factory/34/0"
+   
+    ],
+    "other": [
+        "ts_adaptor",
+        "actuator",
+        "light_status"
+    ]
+}
