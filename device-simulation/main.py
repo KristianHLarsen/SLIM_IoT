@@ -8,11 +8,14 @@ if __name__ == "__main__":
     actuatorHandler = ActuatorHandler()
     # Counter to periodically check if new topics have been added
     counter = 0
-    # How often (in seconds) to check for new topics
-    update_interval = 5
+    # How often (in seconds) to publish sensor data
+    publish_interval = 20
     while True:
-        sensorHandler.send()
-        time.sleep(20)
         sensorHandler.updateSensorTopics()
         actuatorHandler.updateActuatorTopics()
+        if counter == 0 or counter >= publish_interval:
+            sensorHandler.send()
+        time.sleep(5)
+        counter += 5
+        
         

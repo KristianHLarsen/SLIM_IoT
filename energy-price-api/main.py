@@ -20,10 +20,10 @@ from datetime import date
 
 class EnergyPricesAPI:
     exposed=True
-
-    __average_price = 0.2192 # average price as of 14/01/2022 https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Electricity_price_statistics
-    __price_max_var = 0.05 # maximum variance of the price
-    __currency = "EUR"
+    config = json.load(open("config.json"))
+    __average_price = config["average_price"] # average price as of 14/01/2022 https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Electricity_price_statistics
+    __price_max_var = config["price_max_var"] # maximum variance of the price
+    __currency = config["currency"]
 
     def GET(self,*uri,**params):
 		

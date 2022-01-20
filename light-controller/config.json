@@ -1,16 +1,21 @@
 {
-        "rest": {
-            "host": "http://172.15.10.20",
-            "port": "8080",
-            "getdevices": "/get/devices",
-            "gettopics": "/get/topics",
-            "getprices": "/get/prices",
-            "host_prices":"http://172.15.10.40",
-            "port_prices": "9090"
-        },
-        "mqtt": {
-            "broker": "172.15.10.5",
-            "port": 1883,
-            "user_id" : "2354"
-        }
+    "rest": {
+        "host": "http://172.15.10.20",
+        "port": "8080",
+        "getdevices": "/get/devices",
+        "gettopics": "/get/topics",
+        "getprices": "/get/prices",
+        "host_prices": "http://172.15.10.40",
+        "port_prices": "9090"
+    },
+    "mqtt": {
+        "broker": "172.15.10.5",
+        "port": 1883,
+        "user_id": "2354"
+    },
+    "timer_config":{
+        "short_timer": 10,
+        "long_timer": 15,
+        "threshold": 0.2
     }
+}

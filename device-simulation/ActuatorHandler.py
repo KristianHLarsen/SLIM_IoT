@@ -10,7 +10,10 @@ class ActuatorHandler():
         self.deviceType = "actuators"
         # Get mqtt topics from the catalogue-server via a GET request
         # params = {"deviceType": "sensors"})
-        r = requests.get('http://172.15.10.20:8080/get/topics')
+        config = json.load(open("config.json"))
+        rest = config["rest"]
+        self.get_devices_url = rest['host'] + ":" + rest['port'] + rest['gettopics']
+        r = requests.get(self.get_devices_url)
         devices = r.json()
         self.actuator_topics = devices[self.deviceType]
 
@@ -22,11 +25,12 @@ class ActuatorHandler():
             temp = json.dumps(device_topics, indent=4)
             outfile.write(temp)
 
-        config = json.load(open("config.json"))
+        
+        mqtt_config = config["mqtt"]
         self.actuators = []
 
-        self.broker = config["broker"]
-        self.port = config["port"]
+        self.broker = mqtt_config["broker"]
+        self.port = mqtt_config["port"]
 
         for topic in self.actuator_topics:
             self.actuators += [LightActuator(topic, self.broker, self.port)]
@@ -36,7 +40,7 @@ class ActuatorHandler():
 
     def updateActuatorTopics(self):
         print("updating actuators")
-        r = requests.get('http://172.15.10.20:8080/get/topics')
+        r = requests.get(self.get_devices_url)
         devices = r.json()
         # Get set difference to find new sensors
         add_topic = list(set(devices[self.deviceType]) - set(self.actuator_topics))

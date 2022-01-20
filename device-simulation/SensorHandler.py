@@ -10,7 +10,11 @@ class SensorHandler():
         self.deviceType = "sensors"
         # Get mqtt topics from the catalogue-server via a GET request
         # params={"deviceType" : "sensors"})
-        r = requests.get('http://172.15.10.20:8080/get/topics')
+        config = json.load(open("config.json"))
+        mqtt_config = config["mqtt"]
+        rest = config["rest"]
+        self.get_devices_url = rest['host'] + ":" + rest['port'] + rest['gettopics']
+        r = requests.get(self.get_devices_url)
         devices = r.json()
 
         self.sensor_topics = devices[self.deviceType]
@@ -25,8 +29,8 @@ class SensorHandler():
         config = json.load(open("config.json"))
 
         self.sensors = []
-        self.broker = config["broker"]
-        self.port = config["port"]
+        self.broker = mqtt_config["broker"]
+        self.port = mqtt_config["port"]
 
         for topic in self.sensor_topics:
             self.sensors += [Sensor(topic, self.broker, self.port)]
@@ -40,7 +44,7 @@ class SensorHandler():
 
     def updateSensorTopics(self):
         print("updating sensors")
-        r = requests.get('http://172.15.10.20:8080/get/topics')
+        r = requests.get(self.get_devices_url)
         devices = r.json()
         # Get set difference to find new sensors
         add_topic = list(set(devices["sensors"]) - set(self.sensor_topics))

@@ -1,4 +1,13 @@
-{    
-        "broker": "172.15.10.5",
-        "port": 1883
+{
+        "mqtt": {
+                "broker": "172.15.10.5",
+                "port": 1883
+        },
+        "rest": {
+                "host": "http://172.15.10.20",
+                "port": "8080",
+                "getdevices": "/get/devices",
+                "gettopics": "/get/topics",
+                "getprices": "/get/prices"
+            }
 }

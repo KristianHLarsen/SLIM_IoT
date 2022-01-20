@@ -31,10 +31,6 @@ class Catalogue:
             if uri[0].lower() == "get":
                 if uri[1].lower() == "topics":
                     return self.deviceHandler.getDeviceTopics()
-                elif uri[1].lower() == "telegramtoken":
-                    with open("config.json", 'r') as file:
-                        json_object = json.load(file)                        
-                        return json_object
                 elif uri[1].lower() == "devices":
                     return self.deviceHandler.getDevices()
             if uri[0].lower() == "devices":

@@ -14,9 +14,12 @@ class LightController():
         self.__prices_uri = prices_uri
         self.clientID=clientID
         self.client=MyMQTT(clientID,broker,port, self)
-        self.__short_timer = 10
-        self.__long_timer = 15
-        self.__threshold = 0.2
+
+        config = json.load(open("config.json"))
+        timer_config = config["timer_config"]
+        self.__short_timer = timer_config["short_timer"]
+        self.__long_timer = timer_config["long_timer"]
+        self.__threshold = timer_config["threshold"]
         self.__timer = self.__short_timer
         self.__client = mqtt.Client(("Light Controller "+clientID))
         self.__client.connect(broker)

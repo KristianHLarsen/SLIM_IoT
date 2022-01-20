@@ -14,20 +14,21 @@ class ThingspeakAdaptor():
 
         self.broker = MQTT_config['broker']
         self.port = MQTT_config['port']
-        self.hours_active_since_update = 0.0
-        self.total_energy_costs = 0.0
-        self.total_energy_consumption = 0.0
         self.ts_channel = thingspeak.Channel(
             id=ts_config['channel_id'], api_key=ts_config['write_key'])
         self.ts_fields = ts_config['field']
     
         # kW used by each light fixture per hour (https://cdn.shopify.com/s/files/1/0135/1827/4660/files/VHA1.pdf?62663)
-        self.kWUsedPerHour = 0.0
-        self.kWUsedPerActuator = 0.214
+        self.kWUsedPerActuator = config["kwhPerActuator"]
         # Time stamp for when each actuator was started
         self.actuatorStartedStamp = {}
-        # Sum of all actuators active time
+        # Variable to store energy and cost data in
+        self.hours_active_since_update = 0.0
+        self.total_energy_costs = 0.0
+        self.total_energy_consumption = 0.0
+        self.kWUsedPerHour = 0.0
         self.totalTimeActive = 0.0
+        
         self.clientID = clientID
         self._isSubscriber = False
 

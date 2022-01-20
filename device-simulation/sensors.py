@@ -2,10 +2,10 @@ import random
 import json
 from MyMQTT import MyMQTT
 import time
-from simplePublisher import MyPublisher
+# from simplePublisher import MyPublisher
 
 
-class Sensor(MyPublisher):
+class Sensor:
     """docstring for Sensor"""
     def __init__(self, topic, broker, port):
         self.topic = topic

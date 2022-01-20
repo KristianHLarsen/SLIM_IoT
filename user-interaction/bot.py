@@ -10,8 +10,8 @@ import re
 class SlimBot:
     def __init__(self):
         # Catalog token
-        # self.tokenBot=requests.get("http://172.15.10.20:8080/get/telegramtoken").json()["telegramToken"]
-        self.tokenBot = "5062176202:AAGIYMleX2HXuYoUlZWhU05wlob6ftySiR8"
+        config = json.load(open("config.json"))
+        self.tokenBot = config["telegramToken"]
         self.bot = telepot.Bot(self.tokenBot)
         MessageLoop(self.bot, {'chat': self.on_chat_message}).run_as_thread()
  
