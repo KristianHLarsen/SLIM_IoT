@@ -32,7 +32,7 @@ class DataCollector():
 
 
 if __name__ == '__main__':
-	r = requests.get("http://172.15.10.20:8080/get/topics")
+	r = requests.get("http://0.0.0.0:8080/get/topics")
 	sens_topics = r.json()['sensors']
 	act_topics = r.json()['actuators']
 	# print(str(act_topics))

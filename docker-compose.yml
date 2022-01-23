@@ -86,18 +86,6 @@ services:
       app_net:
         ipv4_address: 172.15.10.5
   
-  visualizer:
-    build: ./visualizer/
-    container_name: visualizer
-    ports: 
-      - "8084:8084"
-    depends_on: # used when a service is dependend on other services. 
-      - catalogue
-      - mqtt-mosquitto
-      - energy-price-api
-    networks:
-      app_net:
-        ipv4_address: 172.15.10.90
 
 networks:
   app_net:

@@ -174,7 +174,6 @@ For connecting locally use localhost as IP.
 
 
 ## Visualiser
-
 The visualiser is a simple subscriber, which subscribes to all MQTT topics regarding sensors and actuators and shows their values in a terminal as shown below:
 
 	-------------- ACTUATORS ------------------
@@ -185,6 +184,10 @@ The visualiser is a simple subscriber, which subscribes to all MQTT topics regar
 	-------ID--------------------STATUS--------
 	------sens1------------------False-----
 	------sens2------------------True-----
+
+The visualizer has to be run from the python script in a terminal outside the docker containers and then it connects to the docker containers that it needs access to. 
+
+
 
 
 

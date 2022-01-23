@@ -1,15 +1,15 @@
 {
         "rest": {
-            "host": "http://172.15.10.20",
+            "host": "http://0.0.0.0",
             "port": "8080",
             "getdevices": "/get/devices",
             "gettopics": "/get/topics",
             "getprices": "/get/prices",
-            "host_prices":"http://172.15.10.40",
-            "port_prices": "9090"
+            "host_prices":"http://0.0.0.0",
+            "port_prices": "5003"
         },
         "mqtt": {
-            "broker": "172.15.10.5",
+            "broker": "0.0.0.0",
             "port": 1883,
             "user_id" : "2354"
         }
