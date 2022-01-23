@@ -32,7 +32,8 @@ class DataCollector():
 
 
 if __name__ == '__main__':
-	r = requests.get("http://0.0.0.0:8080/get/topics")
+	# r = requests.get("http://0.0.0.0:8080/get/topics")  # MAC - also change both brokers in config.json
+	r = requests.get("http://127.0.0.1:8080/get/topics") # windows - also change both brokers in config.json
 	sens_topics = r.json()['sensors']
 	act_topics = r.json()['actuators']
 	# print(str(act_topics))
@@ -63,12 +64,14 @@ if __name__ == '__main__':
 		for actuator in actuators:
 			print("------" + str(actuator.get_value_and_id()[1]) + "------------------" + str(actuator.get_value_and_id()[0]) + "-----")
 			
-		("------------------------------------------------")
+		print("-------------------------------------------")
 		print("--------------- SENSORS -------------------")
 		print("-------ID--------------------STATUS--------")
 		for sensor in sensors:
 			print("------" + str(sensor.get_value_and_id()[1]) + "------------------" + str(sensor.get_value_and_id()[0]) + "-----")
-			
+		print("--------------------------------------------")
+		print("--------------------------------------------")
+		print("--------------------------------------------")
 	
 
 

@@ -1,6 +1,6 @@
 {
         "rest": {
-            "host": "http://0.0.0.0",
+            "host": "http://127.0.0.1",
             "port": "8080",
             "getdevices": "/get/devices",
             "gettopics": "/get/topics",
@@ -9,7 +9,7 @@
             "port_prices": "5003"
         },
         "mqtt": {
-            "broker": "0.0.0.0",
+            "broker": "127.0.0.1",
             "port": 1883,
             "user_id" : "2354"
         }
